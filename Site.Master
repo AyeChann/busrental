@@ -1,0 +1,105 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="busrental.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/cycle-plugin.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.banner').cycle();
+        });
+
+    </script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div style="border: 1px solid black; width: 900px; height: 1200px; margin: 0 0 0 220px!important;
+        background-color: #b6b7bc;">
+        <asp:ContentPlaceHolder ID="middlecontent" runat="server" 
+            onload="middlecontent_Load">
+            <table>
+                <tr>
+                    <td>
+                    <%--<div>
+                        <img src="i/d.gif" />
+                    </div>--%>
+                    </td>
+                    <td>
+                        <h1>
+                            Channei Bus Rental Service</h1>
+                    </td>
+                    <td>
+                        <div style="margin:20px 0 0 -290px;font-size:19px;">
+                            <p>
+                                Safety Way!</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div style="margin: 0 0 0 420px;">
+                <asp:Label ID="lbluser" runat="server" Text="User Name"></asp:Label>
+                <asp:TextBox ID="txtuser" runat="server"></asp:TextBox>
+                &nbsp;&nbsp;
+                <asp:Label ID="lblpassword" runat="server" Text="Password"></asp:Label>
+                <asp:TextBox ID="txtpassword" runat="server" TextMode="Password"></asp:TextBox>
+            </div>
+            <asp:Label ID="lblusername" runat="server" Text="" ></asp:Label>
+            <div>
+            </div>
+            <div style="margin: 20px 0 0 755px;">
+                <asp:LinkButton ID="lblregister" Text="Register" runat="server" 
+                    onclick="lblregister_Click"></asp:LinkButton>
+                <asp:Button ID="btnlogin" runat="server" Text="Log In" onclick="btnlogin_Click" />
+                <asp:Button ID="btnlogout" runat="server" Text="Log Out" 
+                    onclick="btnlogout_Click" />
+                <asp:Label ID="lblinfo" runat="server"></asp:Label>
+            </div>
+            <div class="submenu">
+                <ul>
+                    <li><a href="home.aspx">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                <%--<li><a href="booking.aspx">Booking</a></li>--%>
+                    <li>
+                        <asp:LinkButton ID="booking" runat="server" onclick="booking_Click" Text="Booking"></asp:LinkButton>
+                    </li>
+                    <li style="border-right: none;"><a href="#">Contact Us</a></li>
+                        <asp:HiddenField ID="hfpassword" runat="server" />
+                </ul>
+            </div>
+            <div class="banner">
+                <img src="i/n.jpg" />
+                <img src="i/g.jpg" />
+                <img src="i/su.jpg" />
+            </div>
+            <div style="text-align:justify;margin:-260px 0 260px 660px;width:200px;height:50px;line-height:20px;font-size:14px;font-style:italic;">
+                Welcome from Channei Bus Rental Service! We rent all kinds of bus and van what you want. Customer's satisfaction is our pleasure.
+            </div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            <div class="footer">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Booking</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+                <br />
+                <br />
+                <br />
+                <br />
+                <p>
+                    @2013 copyright reserved</p>
+            </div>
+            </asp:ContentPlaceHolder>
+    </div>
+  
+ 
+
+    </form>
+</body>
+</html>
